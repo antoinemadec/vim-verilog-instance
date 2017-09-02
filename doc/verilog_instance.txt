@@ -1,0 +1,14 @@
+*verilog-instance*  Create Verilog port instantiation from port declaration
+
+Author:  Antoine Madec
+License: Same terms as Vim itself (see |license|)
+
+INTRODUCTION                                    *verilog-instance-intro*
+COMMANDS                                        *verilog-instance-commands*
+
+ABOUT                                           *verilog-instance-about*
+
+Grab the latest version or report a bug on GitHub:
+https://github.com/antoinemadec/vim-verilog-instance
+
+ vim:tw=78:et:ft=help:norl:
