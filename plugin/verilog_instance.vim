@@ -5,11 +5,16 @@ let g:loaded_verilog_instance = 1
 
 let s:plugin_dir_path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
-function! s:VerilogInstance() range
-  let cmd=a:firstline . "," . a:lastline . "!" . " " . s:plugin_dir_path. "/verilog_instance.py"
+function! s:VerilogInstance(type,...) abort
+  if a:0
+    let [lnum1, lnum2] = [a:type, a:1]
+  else
+    let [lnum1, lnum2] = [line("'["), line("']")]
+  endif
+  let cmd = lnum1 . "," . lnum2 . "!" . " " . s:plugin_dir_path. "/verilog_instance.py"
   execute cmd
-  let cmd=a:firstline . "," . a:lastline . "norm! =="
+  let cmd = lnum1 . "," . lnum2 . "norm! =="
   execute cmd
 endfunction
 
-command! -range VerilogInstance call s:VerilogInstance()
+command! -range VerilogInstance call s:VerilogInstance(<line1>,<line2>)
