@@ -11,9 +11,9 @@ function! s:VerilogInstance(type,...) abort
   else
     let [lnum1, lnum2] = [line("'["), line("']")]
   endif
-  let cmd = lnum1 . "," . lnum2 . "!" . " " . s:plugin_dir_path. "/verilog_instance.py"
+  let cmd = lnum1 . "norm! =="
   execute cmd
-  let cmd = lnum1 . "," . lnum2 . "norm! =="
+  let cmd = lnum1 . "," . lnum2 . "!" . " " . s:plugin_dir_path. "/verilog_instance.py"
   execute cmd
 endfunction
 
