@@ -15,17 +15,18 @@ keywords.extend([ "unsigned" ])
 patterns = []
 patterns.append(re.compile('\[.*\]'))   # port size, array size
 patterns.append(re.compile('=.*'))      # assignment
-patterns.append(re.compile('[,;]'))     # end of line punctuation
 patterns.append(re.compile('//.*'))     # // comment
+patterns.append(re.compile('\w+\.\w+')) # interfaces with modport
 for kw in keywords:                     # match keywords
     patterns.append(re.compile("\\b%s\\b" % kw))
-patterns.append(re.compile('\s+'))      # spaces and end of line
 
+pattern_empty_line            = re.compile('^\s*$')
 pattern_open_comment          = re.compile('/\*.*')
 pattern_close_comment         = re.compile('.*\*/')
 pattern_open_to_close_comment = re.compile('/\*.*\*/')
-
-pattern_empty_line = re.compile('^\s*$')
+pattern_punctuation           = re.compile('[,;]')
+pattern_two_words_no_coma     = re.compile('^\s*(\w+)\s+(\w+.*)')
+pattern_spaces                = re.compile('\s+')
 
 ports                 = []
 wait_to_close_comment = 0
@@ -51,7 +52,11 @@ for line in sys.stdin:
     # handle all other patterns
     for pattern in patterns:
         line = pattern.sub(' ', line)
-    # add port names
+    # handle typedef, class and interfaces
+    line = pattern_two_words_no_coma.sub('\\2', line)
+    line = pattern_punctuation.sub(' ', line)
+    line = pattern_spaces.sub(' ', line)
+    # finally, get port names
     line = line.strip()
     if line != "":
         ports.extend(line.split(' '))
