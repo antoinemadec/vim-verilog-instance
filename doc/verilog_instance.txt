@@ -1,10 +1,23 @@
-*verilog-instance*  Create Verilog port instantiation from port declaration
+*verilog-instance*  Create SystemVerilog port instantiation from port declaration
 
 Author:  Antoine Madec
 License: Same terms as Vim itself (see |license|)
 
 INTRODUCTION                                    *verilog-instance-intro*
+
+Create SystemVerilog port instantiation from port declaration.
+Work on modules, tasks, functions and all other similar structures.
+
 COMMANDS                                        *verilog-instance-commands*
+
+                                                *gb*
+gb{motion}              Create port instantiation from lines that {motion} moves over.
+
+                                                *gbb*
+gbb                     Create port instantiation from current line.
+
+                                                *gb*
+{Visual}gbb             Create port instantiation from the highlighted lines.
 
 ABOUT                                           *verilog-instance-about*
 
