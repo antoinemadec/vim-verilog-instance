@@ -1,7 +1,8 @@
 vim-verilog-instance
 ====================
 
-verilog_instance.vim: Create SystemVerilog port instantiation from port declaration.
+Create SystemVerilog port instantiation from port declaration.
+
 Work on modules, tasks, functions and all other similar structures.
 
 ![](https://raw.githubusercontent.com/antoinemadec/gif/master/veriloginstance.gif)
@@ -27,6 +28,13 @@ try these commands:
 - `vjjgb`
     - `v`isual-select `j` down twice
     - Start VerilogInstance command (`gb`) on the 3 selected lines
+
+Other vim plugins for Verilog/SystemVerilog
+---------------------------------------
+
+### verilog_systemverilog
+
+[verilog_systemverilog](https://github.com/vhda/verilog_systemverilog.vim) is a syntax plugin for Verilog and SystemVerilog
 
 Author
 ------
