@@ -4,7 +4,7 @@ vim-verilog-instance
 verilog_instance.vim: Create SystemVerilog port instantiation from port declaration.
 Work on modules, tasks, functions and all other similar structures.
 
-![] (https://raw.githubusercontent.com/antoinemadec/gif/master/veriloginstance.gif)
+![](https://raw.githubusercontent.com/antoinemadec/gif/master/veriloginstance.gif)
 
 Installation
 ------------
