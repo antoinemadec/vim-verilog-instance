@@ -3,11 +3,21 @@
 Author:  Antoine Madec
 License: Same terms as Vim itself (see |license|)
 
+CONTENTS                                        *verilog-instance-contents*
+
+Introduction                                    |verilog-instance-intro|
+Commands                                        |verilog-instance-commands|
+Options                                         |verilog-instance-options|
+Key Mappings                                    |verilog-instance-key-mappings|
+About                                           |verilog-instance-about|
+
+==============================================================================
 INTRODUCTION                                    *verilog-instance-intro*
 
 Create SystemVerilog port instantiation from port declaration.
 Work on modules, tasks, functions and all other similar structures.
 
+------------------------------------------------------------------------------
 COMMANDS                                        *verilog-instance-commands*
 
                                                 *gb*
@@ -17,11 +27,31 @@ gb{motion}              Create port instantiation from lines that {motion} moves
 gbb                     Create port instantiation from current line.
 
                                                 *gb*
-{Visual}gbb             Create port instantiation from the highlighted lines.
+{Visual}gb              Create port instantiation from the highlighted lines.
 
+------------------------------------------------------------------------------
+OPTIONS                                         *verilog-instance-options*
+
+                                                *g:verilog_instance_skip_last_coma*
+        let g:screensaver_password = {0/1}
+        When the variable is 1, last printed line will skip the coma.
+        The default value is 0.
+
+------------------------------------------------------------------------------
+KEY MAPPINGS                                    *verilog-instance-key-mappings*
+
+By default, the plugin uses *gb* and *gbb* mappings if not already mapped.
+Those are the prefered mappings, but if they are already used, you can change
+them by adding something like that in your *vimrc* :
+
+        xmap ga  <Plug>VerilogInstance
+        nmap ga  <Plug>VerilogInstance
+        nmap gaa <Plug>VerilogInstanceLine
+
+------------------------------------------------------------------------------
 ABOUT                                           *verilog-instance-about*
 
 Grab the latest version or report a bug on GitHub:
 https://github.com/antoinemadec/vim-verilog-instance
 
- vim:tw=78:et:ft=help:norl:
+ vim:tw=78:ts=8:ft=help:norl:

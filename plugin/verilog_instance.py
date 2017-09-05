@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 
-# this script is a basic script for doing verilog editing
-# it parses the variables from stdin and generate a verilog name instantiation
-# of the variables
+"""this script is a basic script for doing verilog editing
+it parses the variables from stdin and generate a verilog name instantiation
+of the variables"""
 
 import re
 import sys
+
+skip_last_coma = 0
+if len(sys.argv) > 1:
+    skip_last_coma = int(sys.argv[1])
 
 keywords = []
 keywords.extend([ "input", "output", "inout", "ref", "parameter", "localparam" ])
@@ -61,9 +65,13 @@ for line in sys.stdin:
     if line != "":
         ports.extend(line.split(' '))
 
-if len(ports) > 0:
+ports_nb = len(ports)
+i        = 0
+if ports_nb > 0:
     max_str_len = len(max(ports, key=len))
     for port in ports:
-        space_str = " " * (max_str_len - len(port))
+        skip_coma  = skip_last_coma and i == (ports_nb - 1)
+        space_str  = " " * (max_str_len - len(port))
         indent_str = " " * indent_len
-        print("%s.%s%s (%s%s)," % (indent_str,port,space_str,port,space_str))
+        print("%s.%s%s (%s%s)%s" % (indent_str,port,space_str,port,space_str,(",","")[skip_coma]))
+        i = i + 1

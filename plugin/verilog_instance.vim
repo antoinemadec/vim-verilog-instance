@@ -5,6 +5,10 @@ let g:loaded_verilog_instance = 1
 
 let s:plugin_dir_path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
+if !get(g:, 'verilog_instance_skip_last_coma')
+  let g:verilog_instance_skip_last_coma = 0
+endif
+
 function! s:VerilogInstance(type,...) abort
   if a:0
     let [lnum1, lnum2] = [a:type, a:1]
@@ -13,7 +17,7 @@ function! s:VerilogInstance(type,...) abort
   endif
   let cmd = lnum1 . "norm! =="
   execute cmd
-  let cmd = lnum1 . "," . lnum2 . "!" . " " . s:plugin_dir_path. "/verilog_instance.py"
+  let cmd = lnum1 . "," . lnum2 . "!" . " " . s:plugin_dir_path . "/verilog_instance.py " . g:verilog_instance_skip_last_coma
   execute cmd
 endfunction
 
