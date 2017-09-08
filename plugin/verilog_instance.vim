@@ -1,3 +1,6 @@
+" Create Verilog port instantiation from port declaration
+" Maintainer:   Antoine Madec <http://github.com/antoinemadec/>
+
 if exists("g:loaded_verilog_instance") || &cp
   finish
 endif
