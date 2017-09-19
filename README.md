@@ -1,4 +1,4 @@
-vim-verilog-instance
+verilog-instance.vim
 ====================
 
 Create SystemVerilog port instantiation from port declaration.
