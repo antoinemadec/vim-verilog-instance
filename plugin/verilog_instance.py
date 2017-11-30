@@ -13,15 +13,15 @@ if len(sys.argv) > 1:
 
 keywords = []
 keywords.extend([ "input", "output", "inout", "ref", "parameter", "localparam" ])
-keywords.extend([ "reg", "wire", "bit", "integer", "int", "string", "type" ])
+keywords.extend([ "reg", "logic", "wire", "bit", "integer", "int", "string", "type" ])
 keywords.extend([ "unsigned" ])
 
 patterns = []
-patterns.append(re.compile('\[.*\]'))   # port size, array size
-patterns.append(re.compile('=.*'))      # assignment
-patterns.append(re.compile('//.*'))     # // comment
-patterns.append(re.compile('\w+\.\w+')) # interfaces with modport
-for kw in keywords:                     # match keywords
+patterns.append(re.compile('\[[^\[\]]*\]')) # port size, array size
+patterns.append(re.compile('=.*'))          # assignment
+patterns.append(re.compile('//.*'))         # // comment
+patterns.append(re.compile('\w+\.\w+'))     # interfaces with modport
+for kw in keywords:                         # match keywords
     patterns.append(re.compile("\\b%s\\b" % kw))
 
 pattern_empty_line            = re.compile('^\s*$')
