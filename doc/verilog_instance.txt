@@ -33,7 +33,7 @@ gbb                     Create port instantiation from current line.
 OPTIONS                                         *verilog-instance-options*
 
                                                 *g:verilog_instance_skip_last_coma*
-        let g:screensaver_password = {0/1}
+        let g:verilog_instance_skip_last_coma = {0/1}
         When the variable is 1, last printed line will skip the coma.
         The default value is 0.
 
