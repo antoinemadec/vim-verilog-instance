@@ -32,8 +32,7 @@ try these commands:
 Options
 -------
 - let g:verilog_instance_skip_last_coma = {0/1}
-    When the variable is 1, last printed line will skip the coma.
-    The default value is 0.
+    - When the variable is 1, last printed line will skip the coma. Default value is 0.
 
 Other vim plugins for Verilog/SystemVerilog
 ---------------------------------------
