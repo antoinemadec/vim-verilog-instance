@@ -14,7 +14,7 @@ if len(sys.argv) > 1:
 keywords = []
 keywords.extend(["input", "output", "inout", "ref", "parameter", "localparam"])
 keywords.extend(["reg", "logic", "wire", "bit", "integer", "int", "string", "type"])
-keywords.extend(["unsigned"])
+keywords.extend(["const", "unsigned"])
 
 patterns = []
 patterns.append(re.compile(r'\[[^\[\]]*\]'))  # port size, array size
