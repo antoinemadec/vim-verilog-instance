@@ -1,5 +1,10 @@
 verilog-instance.vim
 ====================
+_KyleJeong's Modification_
+
+Support 'gw' to make wire declaration from port declaration. If you found some bug, please let me know.
+
+_Original_
 
 Create SystemVerilog port instantiation from port declaration.
 
