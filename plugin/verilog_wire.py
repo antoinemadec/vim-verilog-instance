@@ -55,20 +55,20 @@ for line in sys.stdin:
             wait_to_close_comment = 1
             continue
 
-    # delete input or output
-    line = line.replace("input",  " ")
-    line = line.replace("output", "")
-    if "wire" not in line:
-        if "reg" in line:
-            line = line.replace("reg", "wire")
-        else:
-            line = "wire "+line
-    
-    line = line.replace(",", ";")
-    line = line.strip()
-    if line=="":
-        continue
-    if line[-1] != ";":
-        line = line + ";"
-
-    print(line)
+    for a_line in line.splitlines():
+        if a_line.strip()=="":
+            continue
+        # delete input or output
+        a_line = a_line.replace("input",  " ")
+        a_line = a_line.replace("output", "")
+        if "wire" not in a_line:
+            if "reg" in a_line:
+                a_line = a_line.replace("reg", "wire")
+            else:
+                a_line = "wire "+a_line
+        
+        a_line = a_line.replace(",", ";")
+        a_line = a_line.strip()
+        if a_line[-1] != ";":
+            a_line = a_line + ";"
+        print(a_line)
