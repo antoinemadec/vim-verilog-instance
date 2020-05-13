@@ -26,7 +26,7 @@ gb{motion}              Create port instantiation from lines that {motion} moves
                                                 *gbb*
 gbb                     Create port instantiation from current line.
 
-                                                *gb*
+                                                *gb-visual*
 {Visual}gb              Create port instantiation from the highlighted lines.
 
 ------------------------------------------------------------------------------
@@ -40,9 +40,9 @@ OPTIONS                                         *verilog-instance-options*
 ------------------------------------------------------------------------------
 KEY MAPPINGS                                    *verilog-instance-key-mappings*
 
-By default, the plugin uses *gb* and *gbb* mappings if not already mapped.
+By default, the plugin uses |gb| and |gbb| mappings if not already mapped.
 Those are the prefered mappings, but if they are already used, you can change
-them by adding something like that in your *vimrc* :
+them by adding something like that in your vimrc :
 
         xmap ga  <Plug>VerilogInstance
         nmap ga  <Plug>VerilogInstance
