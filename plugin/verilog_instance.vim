@@ -34,3 +34,26 @@ if !hasmapto('<Plug>VerilogInstance') && maparg('gb','n') ==# ''
   nmap gb  <Plug>VerilogInstance
   nmap gbb <Plug>VerilogInstanceLine
 endif
+
+function! s:VerilogWire(type,...) abort
+  if a:0
+    let [lnum1, lnum2] = [a:type, a:1]
+  else
+    let [lnum1, lnum2] = [line("'["), line("']")]
+  endif
+  let cmd = lnum1 . "norm! =="
+  execute cmd
+  let cmd = lnum1 . "," . lnum2 . "!" . " " . s:plugin_dir_path . "/verilog_wire.py " . g:verilog_instance_skip_last_coma
+  execute cmd
+endfunction
+
+xnoremap <silent> <Plug>VerilogWire     :<C-U>call <SID>VerilogWire(line("'<"),line("'>"))<CR>
+nnoremap <silent> <Plug>VerilogWire     :<C-U>set opfunc=<SID>VerilogWire<CR>g@
+nnoremap <silent> <Plug>VerilogWireLine :<C-U>set opfunc=<SID>VerilogWire<Bar>exe 'norm! 'v:count1.'g@_'<CR>
+command! -range VerilogWire call s:VerilogWire(<line1>,<line2>)
+
+if !hasmapto('<Plug>VerilogWire') && maparg('gb','n') ==# ''
+  xmap gw  <Plug>VerilogWire
+  nmap gw  <Plug>VerilogWire
+  nmap gww <Plug>VerilogWireLine
+endif
