@@ -52,7 +52,7 @@ nnoremap <silent> <Plug>VerilogWire     :<C-U>set opfunc=<SID>VerilogWire<CR>g@
 nnoremap <silent> <Plug>VerilogWireLine :<C-U>set opfunc=<SID>VerilogWire<Bar>exe 'norm! 'v:count1.'g@_'<CR>
 command! -range VerilogWire call s:VerilogWire(<line1>,<line2>)
 
-if !hasmapto('<Plug>VerilogWire') && maparg('gb','n') ==# ''
+if !hasmapto('<Plug>VerilogWire') && maparg('gw','n') ==# ''
   xmap gw  <Plug>VerilogWire
   nmap gw  <Plug>VerilogWire
   nmap gww <Plug>VerilogWireLine
