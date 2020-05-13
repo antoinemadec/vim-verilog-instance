@@ -65,7 +65,10 @@ for line in sys.stdin:
             line = "wire "+line
     
     line = line.replace(",", ";")
+    line = line.strip()
+    if line=="":
+        continue
     if line[-1] != ";":
         line = line + ";"
-    line = line.strip()
+
     print(line)
