@@ -72,10 +72,13 @@ for line in sys.stdin:
     else:
         print(line)
         for a_line in line.splitlines():
+            print(a_line)
             # Remove cpp style comment (//)
             a_line = pattern_cpp_type_comment.sub(' ', a_line)
+            print(a_line)
             # Remove trailing spaces
             a_line = a_line.strip()
+            print(a_line)
             # if line connets is empty clear it
             if a_line == "":
                 continue
