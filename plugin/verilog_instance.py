@@ -7,6 +7,7 @@ of the variables"""
 import re
 import sys
 
+print(sys.argv[1:])
 skip_last_coma = 0
 wire_declaration = 0
 if len(sys.argv) > 1:
