@@ -20,7 +20,7 @@ function! s:VerilogInstance(type,...) abort
   endif
   let cmd = lnum1 . "norm! =="
   execute cmd
-  let cmd = lnum1 . "," . lnum2 . "!" . " " . s:plugin_dir_path . "/verilog_instance.py " . g:verilog_instance_skip_last_coma
+  let cmd = lnum1 . "," . lnum2 . "!" . " " . s:plugin_dir_path . "/verilog_instance.py " . g:verilog_instance_skip_last_coma . " " . s:verilog_instance_wire_declaration
   execute cmd
 endfunction
 
@@ -30,7 +30,15 @@ nnoremap <silent> <Plug>VerilogInstanceLine :<C-U>set opfunc=<SID>VerilogInstanc
 command! -range VerilogInstance call s:VerilogInstance(<line1>,<line2>)
 
 if !hasmapto('<Plug>VerilogInstance') && maparg('gb','n') ==# ''
+  let s:verilog_instance_wire_declaration = 0
   xmap gb  <Plug>VerilogInstance
   nmap gb  <Plug>VerilogInstance
   nmap gbb <Plug>VerilogInstanceLine
+endif
+
+if !hasmapto('<Plug>VerilogWire') && maparg('ggb','n') ==# ''
+  let s:verilog_instance_wire_declaration = 1
+  xmap ggb  <Plug>VerilogInstance
+  nmap ggb  <Plug>VerilogInstance
+  nmap ggbb <Plug>VerilogInstanceLine
 endif
