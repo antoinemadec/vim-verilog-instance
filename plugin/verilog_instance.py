@@ -70,7 +70,7 @@ for line in sys.stdin:
         if line != "":
             ports.extend(line.split(' '))
     else:
-        print(line)
+        # print(line)
         for a_line in line.splitlines():
             # Remove cpp style comment (//)
             a_line = pattern_cpp_type_comment.sub(' ', a_line)
@@ -91,7 +91,10 @@ for line in sys.stdin:
                     a_line = "wire " + a_line
                     
             # semicolon
+            print(a_line)
             a_line.replace(",", ";")
+            a_line = a_line.strip()
+            print(a_line)
             if a_line[-1] != ';':
                 a_line = a_line + ';'
             # print wire declaration
