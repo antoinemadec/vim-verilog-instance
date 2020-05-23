@@ -91,10 +91,10 @@ for line in sys.stdin:
                     a_line = "wire " + a_line
                     
             # semicolon
-            print(a_line)
-            a_line.replace(",", ";")
+            # print(a_line)
+            a_line = a_line.replace(",", ";")
             a_line = a_line.strip()
-            print(a_line)
+            # print(a_line)
             if a_line[-1] != ';':
                 a_line = a_line + ';'
             # print wire declaration
