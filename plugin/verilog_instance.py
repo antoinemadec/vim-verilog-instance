@@ -70,6 +70,7 @@ for line in sys.stdin:
         if line != "":
             ports.extend(line.split(' '))
     else:
+        print(line)
         for a_line in line.splitlines():
             # Remove cpp style comment (//)
             a_line = pattern_cpp_type_comment.sub(' ', a_line)
