@@ -91,6 +91,7 @@ for line in sys.stdin:
                     a_line = a_line.replace("reg", "wire")
                 else:
                     a_line = "wire " + a_line 
+            print (a_line)
                     
 if wire_declaration == 0:
     ports_nb = len(ports)
