@@ -36,7 +36,7 @@ if !hasmapto('<Plug>VerilogInstance') && maparg('gb','n') ==# ''
   nmap gbb <Plug>VerilogInstanceLine
 endif
 
-if !hasmapto('<Plug>VerilogWire') && maparg('gg','n') ==# ''
+if !hasmapto('<Plug>VerilogWire') && maparg('ggb','n') ==# ''
   let s:verilog_instance_wire_declaration = 1
   xmap ggb  <Plug>VerilogInstance
   nmap ggb  <Plug>VerilogInstance
