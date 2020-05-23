@@ -20,6 +20,7 @@ function! s:VerilogInstance(type,...) abort
   endif
   let cmd = lnum1 . "norm! =="
   execute cmd
+  let cmd = lnum1 . "," . lnum2 . "!" . " " . s:plugin_dir_path . "/verilog_instance.py " . g:verilog_instance_skip_last_coma . " " . s:verilog_instance_wire_declaration
   execute cmd
 endfunction
 
