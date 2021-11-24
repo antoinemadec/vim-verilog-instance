@@ -49,4 +49,4 @@ Author
 License
 ------
 
-Copyright (c) Antoine Madec. Distributed under the same terms as Vim itself. See :help license.
+MIT
