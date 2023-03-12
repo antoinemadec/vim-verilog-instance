@@ -33,6 +33,10 @@ Options
 -------
 - let g:verilog_instance_skip_last_coma = {0/1}
     - When the variable is 1, last printed line will skip the coma. Default value is 0.
+- let g:verilog_instance_keep_comments = {0/1}
+    - When the variable is 1, comments will be kept (block comments /* */ not support!). Default value is 0.
+- let g:verilog_instance_keep_empty_lines = {0/1}
+    - When the variable is 1, empty lines in your code will be printed. Default value is 0.
 
 Other vim plugins for Verilog/SystemVerilog
 ---------------------------------------

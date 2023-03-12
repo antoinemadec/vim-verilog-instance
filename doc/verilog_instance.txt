@@ -37,6 +37,16 @@ OPTIONS                                         *verilog-instance-options*
         When the variable is 1, last printed line will skip the coma.
         The default value is 0.
 
+                                                *g:verilog_instance_keep_comments*
+        let g:verilog_instance_keep_comments = {0/1}
+        When the variable is 1, comments will be kept (block comments /* */ not support!).
+        The default value is 0.
+
+                                                *g:verilog_instance_keep_empty_lines*
+        let g:verilog_instance_keep_empty_lines = {0/1}
+        When the variable is 1, empty lines in your code will be printed.
+        The default value is 0.
+
 ------------------------------------------------------------------------------
 KEY MAPPINGS                                    *verilog-instance-key-mappings*
 

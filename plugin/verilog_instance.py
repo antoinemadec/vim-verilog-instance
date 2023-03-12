@@ -50,6 +50,9 @@ for line in sys.stdin:
     # get indentation length from 1st non empty line
     if indent_len == -1 and not(pattern_empty_line.match(line)):
         indent_len = len(re.match(r'^\s*', line).group(0))
+    # handle empty line
+    if pattern_empty_line.match(line) is not None:
+        contents.append('')
     # handle comments
     if wait_to_close_comment:
         if pattern_close_comment.search(line):
